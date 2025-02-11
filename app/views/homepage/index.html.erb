@@ -1,0 +1,23 @@
+<% content_for :title, "Blog" %>
+
+<% if notice %>
+  <p id="notice"><%= notice %></p>
+<% end %>
+
+<h1>Blog</h1>
+
+<!-- (Begin) Create Article Form -->
+
+<%= render "articles/form", article: @article %>
+
+<!-- (End) Create Article Form -->
+
+<!-- (Begin) Articles List -->
+
+<%= turbo_stream_from "articles" %>
+
+<%= turbo_frame_tag "articles" do %>
+  <%= render @articles %>
+<% end %>
+
+<!-- (End) Articles List -->
