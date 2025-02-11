@@ -25,7 +25,7 @@ class ArticlesController < ApplicationController
 
     respond_to do |format|
       if @article.save
-        format.html { redirect_to @article, notice: "Article was successfully created." }
+        format.html { redirect_back_or_to @article, notice: "Article was successfully created." }
         format.json { render :show, status: :created, location: @article }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -58,13 +58,14 @@ class ArticlesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_article
-      @article = Article.find(params.expect(:id))
-    end
 
-    # Only allow a list of trusted parameters through.
-    def article_params
-      params.expect(article: [ :title, :body ])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_article
+    @article = Article.find(params.expect(:id))
+  end
+
+  # Only allow a list of trusted parameters through.
+  def article_params
+    params.expect(article: [:title, :body])
+  end
 end
