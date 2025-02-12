@@ -28,6 +28,9 @@ class ArticlesController < ApplicationController
         format.html { redirect_back_or_to @article, notice: "Article was successfully created." }
         format.json { render :show, status: :created, location: @article }
       else
+        format.turbo_stream do
+          render turbo_stream: turbo_stream.replace(@article, partial: "articles/form", locals: { article: @article })
+        end
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @article.errors, status: :unprocessable_entity }
       end

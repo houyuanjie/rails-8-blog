@@ -8,7 +8,13 @@
 
 <!-- (Begin) Create Article Form -->
 
-<%= render "articles/form", article: @article %>
+<%# <turbo-frame> 标签中的表单请求默认会优先 Accept: text/vnd.turbo-stream.html
+  在 articles_controller 中可以使用 format.turbo_stream 返回一个 turbo_stream.replace 命令
+  使用这种方法实现对表单验证消息的展示
+  包裹表单的 <turbo-frame> 需要与被包裹的表单有不同的 id，一般在表单上使用 new_xxx 这种命名， 在外部 <turbo-frame> 上只要与其不同即可 %>
+<%= turbo_frame_tag "create_artice_form" do %>
+  <%= render "articles/form", article: @article %>
+<% end %>
 
 <!-- (End) Create Article Form -->
 
