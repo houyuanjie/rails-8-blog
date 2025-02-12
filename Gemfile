@@ -49,6 +49,10 @@ group :development, :test do
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
+
+  # Gems for IDE
+  gem "fiddle", require: false
+  gem "mutex_m", require: false
 end
 
 group :development do

@@ -107,6 +107,7 @@ GEM
     erubi (1.13.1)
     et-orbi (1.2.11)
       tzinfo
+    fiddle (1.1.6)
     fugit (1.11.1)
       et-orbi (~> 1, >= 1.2.11)
       raabro (~> 1.4)
@@ -153,6 +154,7 @@ GEM
     mini_mime (1.1.5)
     minitest (5.25.4)
     msgpack (1.8.0)
+    mutex_m (0.3.0)
     net-imap (0.5.6)
       date
       net-protocol
@@ -342,9 +344,11 @@ DEPENDENCIES
   brakeman
   capybara
   debug
+  fiddle
   importmap-rails
   jbuilder
   kamal
+  mutex_m
   propshaft
   puma (>= 5.0)
   rails (~> 8.0.0)
